@@ -1,0 +1,97 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  #form-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+  }
+  
+  .column {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+  }
+  
+  .column label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .weights-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .slider {
+    margin: 10px 0;
+  }
+  
+  .slider label {
+    display: inline-block;
+    width: 200px;
+  }
+  
+  .slider input[type="range"] {
+    width: 200px;
+  }
+  
+  .slider span {
+    margin-left: 10px;
+  }
+  
+  #recipe-container {
+    margin-top: 40px;
+  }
+  
+  .recipe-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #next-recipe-button {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .checkbox-container {
+    max-height: 150px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+.checkbox-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#selected-ingredients {
+  margin-top: 10px;
+}
+
+#selected-ingredients h4 {
+  margin-bottom: 5px;
+}
+
+#selected-ingredients-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}

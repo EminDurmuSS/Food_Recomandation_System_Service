@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalized Diet Recommender</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>🍽️ Personalized Diet Recommender</h1>
+  <h2>Your Best Food Advisor</h2>
+
+  <div id="form-container">
+    <form id="recipe-form">
+      <div class="column">
+        <label for="meal_type">Meal Type:</label>
+        <select id="meal_type" name="meal_type">
+          <option value="">--Select Meal Type--</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Starter">Starter</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Snack">Snack</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Drink">Drink</option>
+        </select>
+
+        <label for="calories">Calories Level:</label>
+        <select id="calories" name="calories">
+          <option value="">--Select Calories Level--</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <label for="carbs">Carbs Level:</label>
+        <select id="carbs" name="carbs">
+          <option value="">--Select Carbs Level--</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <label for="protein">Protein Level:</label>
+        <select id="protein" name="protein">
+          <option value="">--Select Protein Level--</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <label for="fat">Fat Level:</label>
+        <select id="fat" name="fat">
+          <option value="">--Select Fat Level--</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <label for="ingredients">Ingredients:</label>
+        <div class="checkbox-container">
+          <select id="ingredients" name="ingredients" multiple size="5">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+        </div>
+
+        <div id="selected-ingredients">
+          <h4>Selected Ingredients:</h4>
+          <ul id="selected-ingredients-list"></ul>
+        </div>
+      </div>
+
+      <div class="column">
+        <label for="diet_type">Diet Type:</label>
+        <select id="diet_type" name="diet_type">
+          <option value="">--Select Diet Type--</option>
+          <option value="Standard">Standard</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Ketogenic">Ketogenic</option>
+          <option value="Paleo">Paleo</option>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Egg Free">Egg Free</option>
+          <option value="Lactose Free">Lactose Free</option>
+        </select>
+
+        <label for="region">Region:</label>
+        <select id="region" name="region">
+          <!-- Options will be populated by JavaScript -->
+        </select>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <!-- Options will be populated by JavaScript -->
+        </select>
+
+        <label for="cook_time">Cook Time:</label>
+        <select id="cook_time" name="cook_time">
+          <option value="">--Select Cook Time--</option>
+          <option value="less_than_15_mins">Less than 15 mins</option>
+          <option value="less_than_30_mins">Less than 30 mins</option>
+          <option value="less_than_60_mins">Less than 60 mins</option>
+          <option value="less_than_4_hours">Less than 4 hours</option>
+          <option value="less_than_6_hours">Less than 6 hours</option>
+          <option value="less_than_7_hours">Less than 7 hours</option>
+          <option value="less_than_8_hours">Less than 8 hours</option>
+          <option value="less_than_10_hours">Less than 10 hours</option>
+          <option value="less_than_12_hours">Less than 12 hours</option>
+          <option value="more_than_12_hours">More than 12 hours</option>
+        </select>
+      </div>
+
+      <div class="weights-container">
+        <h3>🛠️ Set Weights for Criteria</h3>
+        <div class="slider">
+          <label for="meal_type_weight">Meal Type Weight:</label>
+          <input type="range" id="meal_type_weight" name="meal_type_weight" min="0" max="5" step="0.1" value="1">
+          <span id="meal_type_weight_value">1</span>
+        </div>
+        <!-- Repeat sliders for other criteria -->
+        <!-- ... -->
+
+        <div class="slider">
+          <label for="diet_type_weight">Diet Type Weight:</label>
+          <input type="range" id="diet_type_weight" name="diet_type_weight" min="0" max="5" step="0.1" value="1">
+          <span id="diet_type_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="region_weight">Region Weight:</label>
+          <input type="range" id="region_weight" name="region_weight" min="0" max="5" step="0.1" value="1">
+          <span id="region_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="cook_time_weight">Cook Time Weight:</label>
+          <input type="range" id="cook_time_weight" name="cook_time_weight" min="0" max="5" step="0.1" value="1">
+          <span id="cook_time_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="calories_weight">Calories Weight:</label>
+          <input type="range" id="calories_weight" name="calories_weight" min="0" max="5" step="0.1" value="1">
+          <span id="calories_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="carbs_weight">Carbs Weight:</label>
+          <input type="range" id="carbs_weight" name="carbs_weight" min="0" max="5" step="0.1" value="1">
+          <span id="carbs_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="protein_weight">Protein Weight:</label>
+          <input type="range" id="protein_weight" name="protein_weight" min="0" max="5" step="0.1" value="1">
+          <span id="protein_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="fat_weight">Fat Weight:</label>
+          <input type="range" id="fat_weight" name="fat_weight" min="0" max="5" step="0.1" value="1">
+          <span id="fat_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="ingredients_weight">Ingredients Weight:</label>
+          <input type="range" id="ingredients_weight" name="ingredients_weight" min="0" max="5" step="0.1" value="1">
+          <span id="ingredients_weight_value">1</span>
+        </div>
+
+        <div class="slider">
+          <label for="country_weight">Country Weight:</label>
+          <input type="range" id="country_weight" name="country_weight" min="0" max="5" step="0.1" value="1">
+          <span id="country_weight_value">1</span>
+        </div>
+      </div>
+
+      <label>
+        <input type="checkbox" id="flexible_matching" name="flexible_matching">
+        Enable Flexible Matching
+      </label>
+
+      <button type="submit">Get Recommendations</button>
+    </form>
+  </div>
+
+  <div id="recipe-container">
+    <!-- Recipe details will be displayed here -->
+  </div>
+
+  <button id="next-recipe-button" style="display:none;">Get Another Recipe</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
